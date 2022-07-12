@@ -31,4 +31,5 @@ url=$(wget -qO- https://api.github.com/repos/maskedeken/gost-plugin/releases/lat
 wget -q $url && tar xf *.tar.gz && mv linux-amd64/gost-plugin usr/local/bin && rm -rf *linux-amd64*
 chmod a+x /usr/local/bin/gost-plugin
 ## start service
+PASSWORD="51d25ce90bc301622dd9"
 nginx && ssserver -s "127.0.0.1:9008" -m "aes-256-gcm" -k "${PASSWORD}" --plugin "gost-plugin" --plugin-opts "server;path=/play"
